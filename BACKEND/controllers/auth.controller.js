@@ -5,7 +5,7 @@ import generatetoken from "../JWT/generatetoken.js";
 
 export const SignUP = async (req, res) => {
     try {
-        const { fullname, username, password, confirmpassword, gender } = req.body;
+        const { fullname, username, password, confirmpassword } = req.body;
         
         if (password !== confirmpassword) {
             return res.status(400).json({ error: "Passwords do not match" });
@@ -24,7 +24,6 @@ export const SignUP = async (req, res) => {
             fullname,
             username,
             password:hashedPassword,
-            gender,
         });
         if(newUser){
             generatetoken(newUser._id,res);
@@ -77,7 +76,9 @@ export const logoutUser = async (req,res) =>{
     try{
     res.cookie("jwt","",{maxAge:0})
     res.status(200).json({ message: 'Logout successful' });}catch(error){
-        console.error("error in loging out",error);
+        console.error("error in loging out",error.message);
+        res.status(500).json({ error: "Internal Server Error" }); 
+        
 
     }
 }
