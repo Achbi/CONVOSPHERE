@@ -4,7 +4,7 @@ export const getusersByID = async (req,res) =>{
   try{
     const userid = req.user._id;
 
-    const getuser = await User.find().select("-password");
+    const getuser = await User.find({ _id: { $ne: userid } }).select("-password");
 
 
     res.status(200).json(getuser)

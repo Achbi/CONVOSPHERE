@@ -17,7 +17,7 @@ export const SocketContextProvider = ({ children }) => {
 
 	useEffect(() => {
 		if (authUser) {
-			const socket = io( "https://convosphere-ehhc.onrender.com",{
+			const socket = io("https://convosphere-ehhc.onrender.com",{
                 query:{
                    userId: authUser._id,
                 },
