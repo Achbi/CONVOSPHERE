@@ -22,11 +22,11 @@ ConvoSphere is a real-time, college-based chat application designed for students
 
 ## Clone the repository:
     ```sh
-    git clone 
+    git clone  https://github.com/Achbi/CONVOSPHERE.git
     ```
 ## Navigate to the project directory:
     ```sh
-    cd frontend
+    cd FRONTEND
     ```
 ## Install the dependencies:
     ```
